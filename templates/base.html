@@ -1,23 +1,14 @@
 <!doctype html>
 <html lang="en">
-<head>
-    <meta charset="utf-8">
-    <title>D&D Character Sheets</title>
-</head>
-<body>
+  <head>
+    <meta charset="UTF-8">
+    <title>{% block title %}D&D Webapp{% endblock %}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+  </head>
+  <body>
     <div class="container">
-        {% with messages = get_flashed_messages(with_categories=true) %}
-        {% if messages %}
-        <div class="flash-messages">
-            {% for category, message in messages %}
-            <div class="alert alert-{{ category }}">
-                {{ message }}
-            </div>
-            {% endfor %}
-        </div>
-        {% endif %}
-        {% endwith %}
-        {% block content %}{% endblock %}
+      {% block content %}
+      {% endblock %}
     </div>
-</body>
+  </body>
 </html>

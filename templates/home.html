@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+
+{% block title %}Home{% endblock %}
+
+{% block content %}
+  <h1>Character List</h1>
+  <ul>
+    {% for character in characters %}
+      <li>{{ character.character_name }}
+        <a href="{{ url_for('edit_character', character_id=character.id) }}">Edit</a>
+      </li>
+    {% endfor %}
+  </ul>
+  <a href="{{ url_for('new_character') }}">Create New Character</a>
+{% endblock %}

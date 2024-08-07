@@ -1,5 +1,4 @@
 from extensions import db
-from datetime import datetime
 
 class Character(db.Model):
     id = db.Column(db.Integer, primary_key=True)
@@ -9,8 +8,8 @@ class Character(db.Model):
     alignment = db.Column(db.String(50), nullable=False)
     race = db.Column(db.String(50), nullable=False)
     age = db.Column(db.Integer, nullable=False)
-    height = db.Column(db.String(20), nullable=False)
-    weight = db.Column(db.Integer, nullable=False)
+    height = db.Column(db.String(50), nullable=False)
+    weight = db.Column(db.String(50), nullable=False)
     gender = db.Column(db.String(50), nullable=False)
     eye_color = db.Column(db.String(50), nullable=False)
     hair_color = db.Column(db.String(50), nullable=False)
@@ -26,7 +25,12 @@ class Character(db.Model):
     charisma = db.Column(db.Integer, nullable=False)
     maximum_health = db.Column(db.Integer, nullable=False)
     current_health = db.Column(db.Integer, nullable=False)
+    armor_class = db.Column(db.Integer, nullable=False)
     xp_points = db.Column(db.Integer, nullable=False)
-    date_created = db.Column(db.DateTime, default=datetime.utcnow)
-    date_modified = db.Column(db.DateTime, default=datetime.utcnow, onupdate=datetime.utcnow)
-    version_number = db.Column(db.Integer, default=1)
+    platinum_coins = db.Column(db.Integer, nullable=False)
+    gold_coins = db.Column(db.Integer, nullable=False)
+    silver_coins = db.Column(db.Integer, nullable=False)
+    copper_coins = db.Column(db.Integer, nullable=False)
+    feats = db.Column(db.Text, nullable=True)
+    special_abilities = db.Column(db.Text, nullable=True)
+    skills = db.Column(db.JSON, nullable=True)

@@ -1,34 +1,109 @@
 {% extends "base.html" %}
 
+{% block title %}Edit Character{% endblock %}
+
 {% block content %}
-<h1>Edit Character</h1>
-<form method="post">
+  <h1>Edit Character</h1>
+  <form method="POST" action="{{ url_for('edit_character', character_id=character.id) }}">
     {{ form.hidden_tag() }}
-    <p>{{ form.character_name.label }}<br>{{ form.character_name }}</p>
-    <p>{{ form.discord_username.label }}<br>{{ form.discord_username }}</p>
-    <p>{{ form.character_class.label }}<br>{{ form.character_class }}</p>
-    <p>{{ form.alignment.label }}<br>{{ form.alignment }}</p>
-    <p>{{ form.race.label }}<br>{{ form.race }}</p>
-    <p>{{ form.age.label }}<br>{{ form.age }}</p>
-    <p>{{ form.height.label }}<br>{{ form.height }}</p>
-    <p>{{ form.weight.label }}<br>{{ form.weight }}</p>
-    <p>{{ form.gender.label }}<br>{{ form.gender }}</p>
-    <p>{{ form.eye_color.label }}<br>{{ form.eye_color }}</p>
-    <p>{{ form.hair_color.label }}<br>{{ form.hair_color }}</p>
-    <p>{{ form.skin_color.label }}<br>{{ form.skin_color }}</p>
-    <p>{{ form.favorite_weapon.label }}<br>{{ form.favorite_weapon }}</p>
-    <p>{{ form.character_description.label }}<br>{{ form.character_description }}</p>
-    <p>{{ form.history.label }}<br>{{ form.history }}</p>
-    <p>{{ form.strength.label }}<br>{{ form.strength }}</p>
-    <p>{{ form.dexterity.label }}<br>{{ form.dexterity }}</p>
-    <p>{{ form.constitution.label }}<br>{{ form.constitution }}</p>
-    <p>{{ form.intelligence.label }}<br>{{ form.intelligence }}</p>
-    <p>{{ form.wisdom.label }}<br>{{ form.wisdom }}</p>
-    <p>{{ form.charisma.label }}<br>{{ form.charisma }}</p>
-    <p>{{ form.maximum_health.label }}<br>{{ form.maximum_health }}</p>
-    <p>{{ form.current_health.label }}<br>{{ form.current_health }}</p>
-    <p>{{ form.xp_points.label }}<br>{{ form.xp_points }}</p>
-    <p>{{ form.submit }}</p>
-</form>
-<a href="{{ url_for('home') }}">Back to Character List</a>
+    <div>
+      {{ form.character_name.label }} {{ form.character_name }}
+    </div>
+    <div>
+      {{ form.discord_username.label }} {{ form.discord_username }}
+    </div>
+    <div>
+      {{ form.character_class.label }} {{ form.character_class }}
+    </div>
+    <div>
+      {{ form.alignment.label }} {{ form.alignment }}
+    </div>
+    <div>
+      {{ form.race.label }} {{ form.race }}
+    </div>
+    <div>
+      {{ form.age.label }} {{ form.age }}
+    </div>
+    <div>
+      {{ form.height.label }} {{ form.height }}
+    </div>
+    <div>
+      {{ form.weight.label }} {{ form.weight }}
+    </div>
+    <div>
+      {{ form.gender.label }} {{ form.gender }}
+    </div>
+    <div>
+      {{ form.eye_color.label }} {{ form.eye_color }}
+    </div>
+    <div>
+      {{ form.hair_color.label }} {{ form.hair_color }}
+    </div>
+    <div>
+      {{ form.skin_color.label }} {{ form.skin_color }}
+    </div>
+    <div>
+      {{ form.favorite_weapon.label }} {{ form.favorite_weapon }}
+    </div>
+    <div>
+      {{ form.character_description.label }} {{ form.character_description }}
+    </div>
+    <div>
+      {{ form.history.label }} {{ form.history }}
+    </div>
+    <div>
+      {{ form.strength.label }} {{ form.strength }}
+    </div>
+    <div>
+      {{ form.dexterity.label }} {{ form.dexterity }}
+    </div>
+    <div>
+      {{ form.constitution.label }} {{ form.constitution }}
+    </div>
+    <div>
+      {{ form.intelligence.label }} {{ form.intelligence }}
+    </div>
+    <div>
+      {{ form.wisdom.label }} {{ form.wisdom }}
+    </div>
+    <div>
+      {{ form.charisma.label }} {{ form.charisma }}
+    </div>
+    <div>
+      {{ form.maximum_health.label }} {{ form.maximum_health }}
+    </div>
+    <div>
+      {{ form.current_health.label }} {{ form.current_health }}
+    </div>
+    <div>
+      {{ form.armor_class.label }} {{ form.armor_class }}
+    </div>
+    <div>
+      {{ form.xp_points.label }} {{ form.xp_points }}
+    </div>
+    <div>
+      {{ form.platinum_coins.label }} {{ form.platinum_coins }}
+    </div>
+    <div>
+      {{ form.gold_coins.label }} {{ form.gold_coins }}
+    </div>
+    <div>
+      {{ form.silver_coins.label }} {{ form.silver_coins }}
+    </div>
+    <div>
+      {{ form.copper_coins.label }} {{ form.copper_coins }}
+    </div>
+    <div>
+      {{ form.feats.label }} {{ form.feats }}
+    </div>
+    <div>
+      {{ form.special_abilities.label }} {{ form.special_abilities }}
+    </div>
+    <div>
+      {{ form.skills.label }} {{ form.skills }}
+    </div>
+    <div>
+      <input type="submit" value="Save Changes">
+    </div>
+  </form>
 {% endblock %}
