@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Create New Character</title>
+</head>
+<body>
+    <h1>Create New Character</h1>
+    <form method="post">
+        {{ form.hidden_tag() }}
+        <p>
+            {{ form.name.label }}<br>
+            {{ form.name(size=32) }}
+        </p>
+        <p>
+            {{ form.race.label }}<br>
+            {{ form.race(size=32) }}
+        </p>
+        <p>
+            {{ form.char_class.label }}<br>
+            {{ form.char_class(size=32) }}
+        </p>
+        <p>
+            {{ form.level.label }}<br>
+            {{ form.level() }}
+        </p>
+        <p>
+            {{ form.strength.label }}<br>
+            {{ form.strength() }}
+        </p>
+        <p>
+            {{ form.dexterity.label }}<br>
+            {{ form.dexterity() }}
+        </p>
+        <p>
+            {{ form.constitution.label }}<br>
+            {{ form.constitution() }}
+        </p>
+        <p>
+            {{ form.intelligence.label }}<br>
+            {{ form.intelligence() }}
+        </p>
+        <p>
+            {{ form.wisdom.label }}<br>
+            {{ form.wisdom() }}
+        </p>
+        <p>
+            {{ form.charisma.label }}<br>
+            {{ form.charisma() }}
+        </p>
+        <p>{{ form.submit() }}</p>
+    </form>
+    <a href="{{ url_for('home') }}">Back to Character List</a>
+</body>
+</html>

@@ -1,0 +1,16 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>D&D Character Sheets</title>
+</head>
+<body>
+    <h1>D&D Character Sheets</h1>
+    <a href="{{ url_for('new_character') }}">Create New Character</a>
+    <ul>
+        {% for character in characters %}
+        <li>{{ character.name }} ({{ character.race }} {{ character.char_class }})</li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
