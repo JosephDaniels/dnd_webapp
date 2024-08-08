@@ -1,270 +1,107 @@
+<!-- new_character.html -->
 {% extends "base.html" %}
-
-{% block title %}Create New Character{% endblock %}
-
 {% block content %}
-  <h1>Create New Character</h1>
+  <h2>Create a New Character</h2>
   <form method="POST" action="{{ url_for('new_character') }}">
     {{ form.hidden_tag() }}
-
     <div>
-      {{ form.character_name.label }}<br>
-      {{ form.character_name(size=32) }}<br>
-      {% for error in form.character_name.errors %}
-        <span style="color: red;">[{{ error }}]</span><br>
-      {% endfor %}
+      {{ form.character_name.label }} {{ form.character_name }}
     </div>
-
     <div>
-      {{ form.discord_username.label }}<br>
-      {{ form.discord_username(size=32) }}<br>
-      {% for error in form.discord_username.errors %}
-        <span style="color: red;">[{{ error }}]</span><br>
-      {% endfor %}
+      {{ form.discord_username.label }} {{ form.discord_username }}
     </div>
-
     <div>
-      {{ form.character_class.label }}<br>
-      {{ form.character_class }}<br>
-      {% for error in form.character_class.errors %}
-        <span style="color: red;">[{{ error }}]</span><br>
-      {% endfor %}
+      {{ form.character_class.label }} {{ form.character_class }}
     </div>
-
     <div>
-      {{ form.alignment.label }}<br>
-      {{ form.alignment }}<br>
-      {% for error in form.alignment.errors %}
-        <span style="color: red;">[{{ error }}]</span><br>
-      {% endfor %}
+      {{ form.alignment.label }} {{ form.alignment }}
     </div>
-
     <div>
-      {{ form.race.label }}<br>
-      {{ form.race }}<br>
-      {% for error in form.race.errors %}
-        <span style="color: red;">[{{ error }}]</span><br>
-      {% endfor %}
+      {{ form.race.label }} {{ form.race }}
     </div>
-
     <div>
-      {{ form.age.label }}<br>
-      {{ form.age }}<br>
-      {% for error in form.age.errors %}
-        <span style="color: red;">[{{ error }}]</span><br>
-      {% endfor %}
+      {{ form.age.label }} {{ form.age }}
     </div>
-
     <div>
-      {{ form.height.label }}<br>
-      {{ form.height(size=32) }}<br>
-      {% for error in form.height.errors %}
-        <span style="color: red;">[{{ error }}]</span><br>
-      {% endfor %}
+      {{ form.height.label }} {{ form.height }}
     </div>
-
     <div>
-      {{ form.weight.label }}<br>
-      {{ form.weight(size=32) }}<br>
-      {% for error in form.weight.errors %}
-        <span style="color: red;">[{{ error }}]</span><br>
-      {% endfor %}
+      {{ form.weight.label }} {{ form.weight }}
     </div>
-
     <div>
-      {{ form.gender.label }}<br>
-      {{ form.gender }}<br>
-      {% for error in form.gender.errors %}
-        <span style="color: red;">[{{ error }}]</span><br>
-      {% endfor %}
+      {{ form.gender.label }} {{ form.gender }}
     </div>
-
     <div>
-      {{ form.eye_color.label }}<br>
-      {{ form.eye_color(size=32) }}<br>
-      {% for error in form.eye_color.errors %}
-        <span style="color: red;">[{{ error }}]</span><br>
-      {% endfor %}
+      {{ form.eye_color.label }} {{ form.eye_color }}
     </div>
-
     <div>
-      {{ form.hair_color.label }}<br>
-      {{ form.hair_color(size=32) }}<br>
-      {% for error in form.hair_color.errors %}
-        <span style="color: red;">[{{ error }}]</span><br>
-      {% endfor %}
+      {{ form.hair_color.label }} {{ form.hair_color }}
     </div>
-
     <div>
-      {{ form.skin_color.label }}<br>
-      {{ form.skin_color(size=32) }}<br>
-      {% for error in form.skin_color.errors %}
-        <span style="color: red;">[{{ error }}]</span><br>
-      {% endfor %}
+      {{ form.skin_color.label }} {{ form.skin_color }}
     </div>
-
     <div>
-      {{ form.favorite_weapon.label }}<br>
-      {{ form.favorite_weapon(size=32) }}<br>
-      {% for error in form.favorite_weapon.errors %}
-        <span style="color: red;">[{{ error }}]</span><br>
-      {% endfor %}
+      {{ form.favorite_weapon.label }} {{ form.favorite_weapon }}
     </div>
-
     <div>
-      {{ form.character_description.label }}<br>
-      {{ form.character_description(rows=5) }}<br>
-      {% for error in form.character_description.errors %}
-        <span style="color: red;">[{{ error }}]</span><br>
-      {% endfor %}
+      {{ form.character_description.label }} {{ form.character_description }}
     </div>
-
     <div>
-      {{ form.history.label }}<br>
-      {{ form.history(rows=5) }}<br>
-      {% for error in form.history.errors %}
-        <span style="color: red;">[{{ error }}]</span><br>
-      {% endfor %}
+      {{ form.history.label }} {{ form.history }}
     </div>
-
     <div>
-      {{ form.strength.label }}<br>
-      {{ form.strength }}<br>
-      {% for error in form.strength.errors %}
-        <span style="color: red;">[{{ error }}]</span><br>
-      {% endfor %}
+      {{ form.strength.label }} {{ form.strength }}
     </div>
-
     <div>
-      {{ form.dexterity.label }}<br>
-      {{ form.dexterity }}<br>
-      {% for error in form.dexterity.errors %}
-        <span style="color: red;">[{{ error }}]</span><br>
-      {% endfor %}
+      {{ form.dexterity.label }} {{ form.dexterity }}
     </div>
-
     <div>
-      {{ form.constitution.label }}<br>
-      {{ form.constitution }}<br>
-      {% for error in form.constitution.errors %}
-        <span style="color: red;">[{{ error }}]</span><br>
-      {% endfor %}
+      {{ form.constitution.label }} {{ form.constitution }}
     </div>
-
     <div>
-      {{ form.intelligence.label }}<br>
-      {{ form.intelligence }}<br>
-      {% for error in form.intelligence.errors %}
-        <span style="color: red;">[{{ error }}]</span><br>
-      {% endfor %}
+      {{ form.intelligence.label }} {{ form.intelligence }}
     </div>
-
     <div>
-      {{ form.wisdom.label }}<br>
-      {{ form.wisdom }}<br>
-      {% for error in form.wisdom.errors %}
-        <span style="color: red;">[{{ error }}]</span><br>
-      {% endfor %}
+      {{ form.wisdom.label }} {{ form.wisdom }}
     </div>
-
     <div>
-      {{ form.charisma.label }}<br>
-      {{ form.charisma }}<br>
-      {% for error in form.charisma.errors %}
-        <span style="color: red;">[{{ error }}]</span><br>
-      {% endfor %}
+      {{ form.charisma.label }} {{ form.charisma }}
     </div>
-
     <div>
-      {{ form.maximum_health.label }}<br>
-      {{ form.maximum_health }}<br>
-      {% for error in form.maximum_health.errors %}
-        <span style="color: red;">[{{ error }}]</span><br>
-      {% endfor %}
+      {{ form.maximum_health.label }} {{ form.maximum_health }}
     </div>
-
     <div>
-      {{ form.current_health.label }}<br>
-      {{ form.current_health }}<br>
-      {% for error in form.current_health.errors %}
-        <span style="color: red;">[{{ error }}]</span><br>
-      {% endfor %}
+      {{ form.current_health.label }} {{ form.current_health }}
     </div>
-
     <div>
-      {{ form.armor_class.label }}<br>
-      {{ form.armor_class }}<br>
-      {% for error in form.armor_class.errors %}
-        <span style="color: red;">[{{ error }}]</span><br>
-      {% endfor %}
+      {{ form.armor_class.label }} {{ form.armor_class }}
     </div>
-
     <div>
-      {{ form.xp_points.label }}<br>
-      {{ form.xp_points }}<br>
-      {% for error in form.xp_points.errors %}
-        <span style="color: red;">[{{ error }}]</span><br>
-      {% endfor %}
+      {{ form.xp_points.label }} {{ form.xp_points }}
     </div>
-
     <div>
-      {{ form.platinum_coins.label }}<br>
-      {{ form.platinum_coins }}<br>
-      {% for error in form.platinum_coins.errors %}
-        <span style="color: red;">[{{ error }}]</span><br>
-      {% endfor %}
+      {{ form.platinum_coins.label }} {{ form.platinum_coins }}
     </div>
-
     <div>
-      {{ form.gold_coins.label }}<br>
-      {{ form.gold_coins }}<br>
-      {% for error in form.gold_coins.errors %}
-        <span style="color: red;">[{{ error }}]</span><br>
-      {% endfor %}
+      {{ form.gold_coins.label }} {{ form.gold_coins }}
     </div>
-
     <div>
-      {{ form.silver_coins.label }}<br>
-      {{ form.silver_coins }}<br>
-      {% for error in form.silver_coins.errors %}
-        <span style="color: red;">[{{ error }}]</span><br>
-      {% endfor %}
+      {{ form.silver_coins.label }} {{ form.silver_coins }}
     </div>
-
     <div>
-      {{ form.copper_coins.label }}<br>
-      {{ form.copper_coins }}<br>
-      {% for error in form.copper_coins.errors %}
-        <span style="color: red;">[{{ error }}]</span><br>
-      {% endfor %}
+      {{ form.copper_coins.label }} {{ form.copper_coins }}
     </div>
-
     <div>
-      {{ form.feats.label }}<br>
-      {{ form.feats(rows=5) }}<br>
-      {% for error in form.feats.errors %}
-        <span style="color: red;">[{{ error }}]</span><br>
-      {% endfor %}
+      {{ form.feats.label }} {{ form.feats }}
     </div>
-
     <div>
-      {{ form.special_abilities.label }}<br>
-      {{ form.special_abilities(rows=5) }}<br>
-      {% for error in form.special_abilities.errors %}
-        <span style="color: red;">[{{ error }}]</span><br>
-      {% endfor %}
+      {{ form.special_abilities.label }} {{ form.special_abilities }}
     </div>
-
     <div>
-      {{ form.skills.label }}<br>
-      {{ form.skills(rows=5) }}<br>
-      {% for error in form.skills.errors %}
-        <span style="color: red;">[{{ error }}]</span><br>
-      {% endfor %}
+      {{ form.skills.label }} {{ form.skills }}
     </div>
-
     <div>
-      <input type="submit" value="Create">
+      <input type="submit" value="Create Character">
     </div>
   </form>
 {% endblock %}

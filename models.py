@@ -1,12 +1,14 @@
+# models.py
+
 from extensions import db
 
 class Character(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     character_name = db.Column(db.String(100), nullable=False)
     discord_username = db.Column(db.String(100), nullable=False)
-    character_class = db.Column(db.String(50), nullable=False)
-    alignment = db.Column(db.String(50), nullable=False)
-    race = db.Column(db.String(50), nullable=False)
+    character_class = db.Column(db.String(100), nullable=False)
+    alignment = db.Column(db.String(100), nullable=False)
+    race = db.Column(db.String(100), nullable=False)
     age = db.Column(db.Integer, nullable=False)
     height = db.Column(db.String(50), nullable=False)
     weight = db.Column(db.String(50), nullable=False)
@@ -31,6 +33,6 @@ class Character(db.Model):
     gold_coins = db.Column(db.Integer, nullable=False)
     silver_coins = db.Column(db.Integer, nullable=False)
     copper_coins = db.Column(db.Integer, nullable=False)
-    feats = db.Column(db.Text, nullable=True)
-    special_abilities = db.Column(db.Text, nullable=True)
-    skills = db.Column(db.JSON, nullable=True)
+    feats = db.Column(db.String, nullable=False)  # Store as comma-separated string
+    special_abilities = db.Column(db.Text)
+    skills = db.Column(db.Text)

@@ -1,24 +1,14 @@
-import os
-from flask import Flask, render_template, request, redirect, url_for
+# webapp.py
+from flask import Flask, render_template, redirect, url_for, flash
+from forms import CharacterForm
+from models import Character
 from extensions import db, migrate
 
 app = Flask(__name__)
-
-# Ensure the 'instance' directory exists for SQLite database
-db_path = os.path.join(os.path.abspath(os.path.dirname(__file__)), 'instance', 'characters.db')
-app.config['SQLALCHEMY_DATABASE_URI'] = f'sqlite:///{db_path}'
-app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 app.config['SECRET_KEY'] = 'your_secret_key'
-
-# Initialize SQLAlchemy
+app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///site.db'
 db.init_app(app)
-
-# Initialize Flask-Migrate
 migrate.init_app(app, db)
-
-# Import models after initializing db and migrate
-from models import Character
-from forms import CharacterForm
 
 @app.route('/')
 def home():
@@ -29,6 +19,7 @@ def home():
 def new_character():
     form = CharacterForm()
     if form.validate_on_submit():
+        feats = ','.join(form.feats.data)
         character = Character(
             character_name=form.character_name.data,
             discord_username=form.discord_username.data,
@@ -59,12 +50,13 @@ def new_character():
             gold_coins=form.gold_coins.data,
             silver_coins=form.silver_coins.data,
             copper_coins=form.copper_coins.data,
-            feats=form.feats.data,
+            feats=feats,
             special_abilities=form.special_abilities.data,
             skills=form.skills.data
         )
         db.session.add(character)
         db.session.commit()
+        flash('Character created successfully!', 'success')
         return redirect(url_for('home'))
     return render_template('new_character.html', form=form)
 
@@ -73,10 +65,44 @@ def edit_character(character_id):
     character = Character.query.get_or_404(character_id)
     form = CharacterForm(obj=character)
     if form.validate_on_submit():
-        form.populate_obj(character)
+        character.character_name = form.character_name.data
+        character.discord_username = form.discord_username.data
+        character.character_class = form.character_class.data
+        character.alignment = form.alignment.data
+        character.race = form.race.data
+        character.age = form.age.data
+        character.height = form.height.data
+        character.weight = form.weight.data
+        character.gender = form.gender.data
+        character.eye_color = form.eye_color.data
+        character.hair_color = form.hair_color.data
+        character.skin_color = form.skin_color.data
+        character.favorite_weapon = form.favorite_weapon.data
+        character.character_description = form.character_description.data
+        character.history = form.history.data
+        character.strength = form.strength.data
+        character.dexterity = form.dexterity.data
+        character.constitution = form.constitution.data
+        character.intelligence = form.intelligence.data
+        character.wisdom = form.wisdom.data
+        character.charisma = form.charisma.data
+        character.maximum_health = form.maximum_health.data
+        character.current_health = form.current_health.data
+        character.armor_class = form.armor_class.data
+        character.xp_points = form.xp_points.data
+        character.platinum_coins = form.platinum_coins.data
+        character.gold_coins = form.gold_coins.data
+        character.silver_coins = form.silver_coins.data
+        character.copper_coins = form.copper_coins.data
+        character.feats = ','.join(form.feats.data)
+        character.special_abilities = form.special_abilities.data
+        character.skills = form.skills.data
         db.session.commit()
+        flash('Character updated successfully!', 'success')
         return redirect(url_for('home'))
+    form.feats.data = character.feats.split(',')
     return render_template('edit_character.html', form=form, character=character)
+
 
 if __name__ == '__main__':
     app.run(debug=True)
